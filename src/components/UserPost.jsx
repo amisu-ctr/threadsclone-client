@@ -7,7 +7,7 @@ import { BsThreeDots } from "react-icons/bs";
 import Actions from "./Actions";
 import { useState } from "react";
 
-function UserPost() {
+function UserPost({postImg, postTitle, likes, replies}) {
     const [liked, setLiked] = useState(false)
   return (
     <Link to={"/markzuckerberg/post/1"}>
@@ -57,13 +57,24 @@ function UserPost() {
                 </Flex>
             </Flex>
             
-            <Text fontSize={'sm'}>This is my first post</Text>
-            <Box borderRadius={6} overflow={'hidden'} border={'1px soild'} borderColor={'gray.light'}>
-                <Image src='/post1.png' w={'full'} />
-            </Box>
+            <Text fontSize={'sm'}>{postTitle}</Text>
+            {postImg && (
+
+              <Box borderRadius={6} overflow={'hidden'} border={'1px soild'} borderColor={'gray.light'}>
+              <Image src={postImg} w={'full'} />
+          </Box>
+            )}
 
             <Flex gap={3} my={1}>
                 <Actions liked={liked} setLiked={setLiked} />
+            </Flex>
+
+            <Flex gap={2} alignItems={"center"}>
+              <Text color={'gray.light'} fontSize='sm'>{replies}</Text>
+              <Box w={0.5} h={0.5} borderRadius={'full'} bg={'gray.light'}></Box>
+              <Text color={'gray.light'} fontSize='sm'>
+                {likes}
+              </Text>
             </Flex>
         </Flex>
       </Flex>
