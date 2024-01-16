@@ -5,6 +5,7 @@ import { Image } from "@chakra-ui/image";
 import { BsThreeDots } from "react-icons/bs";
 import { useState } from "react";
 import { Button } from "@chakra-ui/react";
+import Comments from "../components/Comments";
 
 const PostPage = () => {
   const [liked, setLiked] = useState(false);
@@ -43,26 +44,45 @@ const PostPage = () => {
         <Actions liked={liked} setLiked={setLiked} />
       </Flex>
 
-      <Flex gap={2} alignItems= {'center'}>
-        <Text color={'gray.light'}> 128 replies</Text>
-        <Box w={0.5} h={0.5} borderRadius={'full'} bg={'gray.light'}></Box>
-        <Text color={'gray.light'} fontSize={'sm'}>
+      <Flex gap={2} alignItems={"center"}>
+        <Text color={"gray.light"}> 128 replies</Text>
+        <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
+        <Text color={"gray.light"} fontSize={"sm"}>
           {200 + (liked ? 1 : 0)} likes
         </Text>
       </Flex>
       <Divider my={4} />
 
-      <Flex justifyContent={'space-between'}>
-        <Flex gap={2} alignItems={'center'}>
-          <Text fontSize={'2xl'}>👋</Text>
-          <Text color={'gray.light'}>Get the app to like, repy and post</Text>
+      <Flex justifyContent={"space-between"}>
+        <Flex gap={2} alignItems={"center"}>
+          <Text fontSize={"2xl"}>👋</Text>
+          <Text color={"gray.light"}>Get the app to like, repy and post</Text>
         </Flex>
-        <Button>
-          Get
-        </Button>
+        <Button>Get</Button>
       </Flex>
 
       <Divider my={4} />
+      <Comments
+        comment="Looks really good!"
+        createdAt={"1d"}
+        likes={21}
+        username="johndoe"
+        userAvatar="https://bit.ly/dan-abramov"
+      />
+       <Comments
+        comment="Looks really good!"
+        createdAt={"2d"}
+        likes={21}
+        username="jandoe"
+        userAvatar="https://bit.ly/code-beast"
+      />
+       <Comments
+        comment="Tastes amazing"
+        createdAt={"4d"}
+        likes={21}
+        username="sallydoe"
+        userAvatar="https://bit.ly/sage-adebayo"
+      />
     </>
   );
 };
